@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import socket
 import sys
 import logging
@@ -48,11 +49,21 @@ def get_request(data, address, socket, cloudflare_dns):
         sys.exit(1)
 
 def main():
+    if len(sys.argv) == 0:
+        custom_port = False
+    else:
+        custom_port = True
+        new_port = int(sys.argv[1])
     try:
         s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-        s.bind(
-            (listening_host, listening_port)
-        )
+        if custom_port == True:
+            s.bind(
+                (listening_host, new_port)
+            )
+        else:
+            s.bind(
+                (listening_host, listening_port)
+            )
         while True:
             try:
                 data, address = s.recvfrom(4096)
