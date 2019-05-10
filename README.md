@@ -10,7 +10,7 @@ a simple python script to listen to socket (53), and forward to cloudflare dns `
 - `docker build -t simple-dns .`
 - `docker run -itd simple-dns`
 
-### Test query with dig
+### Test query with dig+docker
 - `dig @$(sudo docker inspect --format '{{ .NetworkSettings.IPAddress }}' simple-dns) google.com`
 
 ### Test query without docker
