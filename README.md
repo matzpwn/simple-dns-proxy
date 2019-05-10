@@ -6,7 +6,7 @@ This project is for learning purpose. I use python to create simple dns proxy. P
 a simple python script to listen to socket (53), and forward to cloudflare dns `1.1.1.1` with tls.
 
 ### How to setup
-- cd python/
+- `cd python/`
 - `docker build -t simple-dns .`
 - `docker run -itd simple-dns`
 
